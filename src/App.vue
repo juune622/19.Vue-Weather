@@ -16,7 +16,6 @@ export default {
 }
 </script>
 <style lang="scss">
-	@import '@/assets/scss/_mixins';
 	#app{
 		height: 100vh;
 		flex-direction: column;
