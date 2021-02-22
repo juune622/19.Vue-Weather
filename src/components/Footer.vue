@@ -1,6 +1,5 @@
 <template lang="pug">
-    footer.footer-wrapper
-        Copyright &copy;Juune. Allright Reserved.
+    footer.footer-wrapper Copyright &copy;Juune. Allright Reserved.
 </template>
 <script>
 export default {
