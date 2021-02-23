@@ -18,13 +18,14 @@ export default {
 	},
 	watch:{
 		selected : function(nv, ov) {
-			this.$store.dispatch('ACT_CITY',nv)
+			this.$store.dispatch('ACT_WEATHER',nv)
 		}
 	},
 	data() {
 		return {
 			selected: null,
 			city: [],
+			
 		}
 	}
 }
