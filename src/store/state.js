@@ -1,5 +1,5 @@
 export default {
 	selCity:'',
-	daily:{},
-	days:[],
+	daily:null,
+	days:null
 }
