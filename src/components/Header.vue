@@ -2,10 +2,8 @@
 	header.header-wrapper
 		.logo
 			i.fa.fa-sun
-			router-link(to='/') HOME
+			router-link(to='/') DAILY
 		ul.navi-wrapper
-			li.navi
-				router-link(to='/daily') DAILY
 			li.navi
 				router-link(to='/days') 5DAYS
 </template>
@@ -20,7 +18,7 @@ export default {
 .header-wrapper {
 	color: $colorLighter;
 	background-color:$colorDarker;
-	@include flex($SB, $CT);
+	@include flex($FS, $CT);
 	.logo{
 		@include flex($FS, $CT);
 		padding: 1em;

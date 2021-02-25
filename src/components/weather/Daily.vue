@@ -3,9 +3,9 @@
 		Title.Title(:value="title")
 		Time.Time(:value="time")
 		Icon.Icon(:value="icon")
-		Temp
-		Summary
-		Wind
+		Temp.Temp(:value="temp")
+		Summary.Summary(:value="summary")
+		Wind.Wind(:value="wind")
 </template>
 
 <script>
@@ -19,6 +19,8 @@ import Wind from './Wind.vue'
 
 import { mapGetters } from 'vuex'
 import moment from 'moment'
+
+
 
 export default {
 	name:'Daily',
@@ -45,6 +47,39 @@ export default {
 				? `http://openweathermap.org/img/wn/${this.GET_DAILY.weather[0].icon}@2x.png`
 				: 'http://via.placeholder.com/25x25&text=no%20icon'
 			)
+		},
+		temp:function(){
+			return (
+				this.GET_DAILY
+				? {
+					temp: this.GET_DAILY.main.temp,
+					feel:this.GET_DAILY.main.feels_like,
+					max:this.GET_DAILY.main.temp_max,
+					min:this.GET_DAILY.main.temp_min,
+				
+				}
+				: {temp:'',feel:'',max:'',min:''}
+			)
+		},
+		summary:function(){
+			return (
+				this.GET_DAILY
+				?{
+					desc:this.GET_DAILY.weather[0].description,
+					main:this.GET_DAILY.weather[0].main,
+				}
+				:{desc:'',main:''}
+			)
+		},
+		wind: function() {
+			return (
+				this.GET_DAILY
+				? {
+						speed: this.GET_DAILY.wind.speed,
+						deg: this.GET_DAILY.wind.deg
+					}
+				: { speed: '', deg: '' }
+			)
 		}
 	}
 }
@@ -57,5 +92,8 @@ export default {
 	}
 	.Time{
 		margin-bottom: 1px;
+	}
+	.Temp{
+		font-size: 1.125em;
 	}
 </style>

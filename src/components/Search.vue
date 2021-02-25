@@ -7,26 +7,26 @@ import axios from 'axios'
 
 export default {
 	name: 'Search',
+	props: ['action', 'selCity'],
 	async created() {
-		const r = await axios.get('./json/city.json')
+		const r = await axios.get('/json/city.json')
 		this.city = r.data.map((v) => {
 			v.text = v.name
 			v.value = v.id
-			return v;
+			return v
 		});
-			this.city.unshift({value:null, text: '현재위치'});
+		this.city.unshift({value: null, text: '현재위치'})
+		this.selected = this.selCity || null
 	},
-	watch:{
-		selected : function(nv) {
-			this.$store.dispatch('ACT_WEATHER',nv)
+	watch: {
+		selected: function(nv) {
+			this.$store.dispatch(this.action, nv)
 		}
 	},
 	data() {
 		return {
-			selected: null,
+			selected: '',
 			city: [],
-			app_id:''
-			
 		}
 	}
 }
