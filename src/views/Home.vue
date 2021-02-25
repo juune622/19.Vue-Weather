@@ -5,7 +5,7 @@
 				small.ml-3 v1.0
 		Search.Search(:action="`ACT_DAILY`")
 		transition(name="slide-fade" mode="out-in")
-			Daily(:key="tKey")
+			Daily(:key="tKey" v-if="GET_DAILY")
 </template>
 <script>
 import { mapGetters } from 'vuex'
@@ -37,6 +37,7 @@ export default {
 .home-wrapper {
 	padding: 1em 2em;
 	text-align: center;
+	overflow-y: auto;
 	@include flex($CT, $CT);
 	flex-direction: column;
 	.Search {

@@ -44,8 +44,8 @@ export default {
 		icon:function(){
 			return (
 				this.GET_DAILY
-				? `http://openweathermap.org/img/wn/${this.GET_DAILY.weather[0].icon}@2x.png`
-				: 'http://via.placeholder.com/25x25&text=no%20icon'
+				? `https://openweathermap.org/img/wn/${this.GET_DAILY.weather[0].icon}@2x.png`
+				: 'https://via.placeholder.com/25x25&text=no%20icon'
 			)
 		},
 		temp:function(){
